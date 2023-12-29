@@ -1,0 +1,41 @@
+---
+import Avatar from "../assets/avatar.webp";
+import Badge from "../components/Badge.astro"
+import Github from "../components/icons/Github.astro";
+import Twitter from "../components/icons/Twitter.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import Gmail from "../components/icons/Gmail.astro";
+---
+
+<section id="inicio" class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 py-24 px-5 sm:p-24">
+    <div class="lg:w-3/5">
+        <h1 class="text-3xl sm:text-5xl font-bold text-sky-300 my-3">
+            Hola, soy Angel 🫠.
+        </h1>
+        <p class="text-lg sm:text-2xl text-pretty my-3">
+            Soy un desarrollador <span class="text-purple-400"
+                >Web Full Stack</span
+            >. Me gusta mucho el <span class="text-purple-400"
+                >desarrollo web</span
+            > y me encanta aprender nuevas tecnologías.
+        </p>
+        <div class="flex flex-wrap gap-2">
+            <Badge link="https://github.com/Angelito91" text="Github">
+                <Github /> 
+            </Badge>
+            <Badge link="https://twitter.com/Angelito23756" text="Twitter">
+                <Twitter /> 
+            </Badge>
+            <Badge link="mailto:portuondoangel@gmail.com" text="Di hola 👋">
+                <Gmail /> 
+            </Badge>
+            <Badge link="https://www.linkedin.com/in/angel-portuondo-7b51b62a7/" text="Contratame 😎">
+                <LinkedIn /> 
+            </Badge>
+        </div>
+        
+    </div>
+    <div>
+        <img class="w-full rounded-full" src={Avatar.src} alt="avatar" />
+    </div>
+</section>

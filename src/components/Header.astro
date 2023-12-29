@@ -1,0 +1,48 @@
+<header
+    class="fixed top-0 flex justify-center items-center mx-auto w-full py-5"
+>
+    <nav
+        class="bg-gray-700 border border-slate-800 shadow rounded-lg px-5 py-2"
+    >
+        <ul class="menu flex font-bold text-slate-400 gap-5">
+            <li>
+                <a class="transition text-white hover:text-white" href="#inicio">Inicio</a>
+            </li>
+            <li><a class="transition hover:text-white" href="#sobre">Sobre mí</a></li>
+            <li>
+                <a class="transition hover:text-white" href="#habilidades">Habilidades</a>
+            </li>
+            <li><a class="transition hover:text-white" href="#proyectos">Proyectos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const id = entry.target.getAttribute("id");
+                const link = document.querySelector(
+                    `.menu li a[href="#${id}"]`,
+                );
+                if (entry.isIntersecting) {
+                    document
+                        .querySelector(".menu li .text-white")
+                        .classList.remove("text-white");
+                    link.classList.add("text-white");
+                }
+            });
+        },
+        { rootMargin: "-30% 0px -70% 0px" },
+    );
+
+    const menuLinks = document.querySelectorAll(".menu li a[href^='#']");
+
+    menuLinks.forEach((menuLink) => {
+        const hash = menuLink.getAttribute("href");
+        const target = document.querySelector(hash);
+        if (target) {
+            observer.observe(target);
+        }
+    });
+</script>
